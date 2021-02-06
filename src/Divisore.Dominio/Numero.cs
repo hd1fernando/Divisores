@@ -6,30 +6,39 @@ namespace Divisore.Dominio
     public class Numero
     {
         private readonly int _numero;
+        HashSet<int> _listaDeDivisores;
 
         public Numero(int numero)
         {
             _numero = numero;
+            _listaDeDivisores = new HashSet<int>();
         }
 
-        public IList<int> Divisores()
+        public IEnumerable<int> Divisores()
         {
-            List<int> lista = new();
+            _listaDeDivisores.Add(1);
 
-            lista.Add(1);
-
-            var metade = Math.Round((double)_numero / 2);
+            var metade = ObterMetade();
 
             for (int i = 2; i < metade; i++)
-            {
-                if (_numero % i == 0)
-                    lista.Add(i);
-            }
+                AdicinarDivisor(i);
 
-            lista.Add(_numero);
+            _listaDeDivisores.Add(_numero);
 
-            return lista;
+            return _listaDeDivisores;
         }
+
+        private void AdicinarDivisor(int numero)
+        {
+            if (EDivisor(numero))
+                _listaDeDivisores.Add(numero);
+        }
+
+        private bool EDivisor(int numero)
+            => _numero % numero == 0;
+
+        private double ObterMetade()
+            => Math.Round((double)_numero / 2);
 
     }
 }
