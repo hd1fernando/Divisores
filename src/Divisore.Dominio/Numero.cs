@@ -6,7 +6,7 @@ namespace Divisore.Dominio
     public class Numero
     {
         private readonly int _numero;
-        HashSet<int> _listaDeDivisores;
+        private HashSet<int> _listaDeDivisores;
 
         public Numero(int numero)
         {
@@ -14,27 +14,36 @@ namespace Divisore.Dominio
             _listaDeDivisores = new HashSet<int>();
         }
 
+
         public IEnumerable<int> Divisores()
         {
+            ValidarSeZero();
+
             _listaDeDivisores.Add(1);
 
             var metade = ObterMetade();
 
             for (int i = 2; i < metade; i++)
-                AdicinarDivisor(i);
+                AdicionarDivisor(i);
 
             _listaDeDivisores.Add(_numero);
 
             return _listaDeDivisores;
         }
 
-        private void AdicinarDivisor(int numero)
+        private void ValidarSeZero()
         {
-            if (EDivisor(numero))
+            if (_numero == 0)
+                throw new ArgumentException("O Número zero não possui divizores.");
+        }
+
+        private void AdicionarDivisor(int numero)
+        {
+            if (EhDivisor(numero))
                 _listaDeDivisores.Add(numero);
         }
 
-        private bool EDivisor(int numero)
+        private bool EhDivisor(int numero)
             => _numero % numero == 0;
 
         private double ObterMetade()
