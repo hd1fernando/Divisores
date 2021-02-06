@@ -1,5 +1,6 @@
 using Divisore.Dominio;
 using FluentAssertions;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -35,6 +36,16 @@ namespace Divisores.Dominio.Tests
             var divisores = numero.Divisores();
 
             divisores.Should().Equal(new HashSet<int> { 1 });
+        }
+
+        [Fact(DisplayName = "Deve levantar exceção quando numero for zero.")]
+        public void DeveLancarExcecaoQuandoNumeroForZero()
+        {
+            Numero numero = new(0);
+
+            Action acao = () => { numero.Divisores(); };
+
+            acao.Should().ThrowExactly<ArgumentException>().WithMessage("O Número zero não possui divizores.");
         }
     }
 }
