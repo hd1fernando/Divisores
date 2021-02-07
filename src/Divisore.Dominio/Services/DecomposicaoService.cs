@@ -23,9 +23,7 @@ namespace Divisores.Dominio.Services
             var divisores = numero.Divisores();
 
             foreach (var divisor in divisores)
-            {
                 AddPrimos(divisor);
-            }
 
             return new DivisoresResult(numero, divisores, _primos);
         }

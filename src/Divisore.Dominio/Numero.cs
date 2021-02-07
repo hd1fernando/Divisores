@@ -74,12 +74,14 @@ namespace Divisores.Dominio
         {
             long numero = _numero;
             if (numero < 0) numero = numero * (-1);
-            if (numero == 1 || numero == 0) return false;
-            if (EhPar() && numero > 2) return false;
+
+            if (numero <= 1) return false;
+            if (numero <= 3) return true;
+            if (EhPar() || EhDivisor(3)) return false;
 
             var raiz = ObterRaizQuadrada();
 
-            for (int i = 2; i <= raiz; i++)
+            for (int i = 5; i <= raiz; i++)
             {
                 if (EhDivisor(i))
                     return false;
