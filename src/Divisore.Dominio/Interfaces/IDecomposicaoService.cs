@@ -2,6 +2,6 @@
 {
     public interface IDecomposicaoService
     {
-        public DivisoresResult EncontarDivisores(Numero numero);
+        public DivisoresResult EncontarDivisores(long numero);
     }
 }

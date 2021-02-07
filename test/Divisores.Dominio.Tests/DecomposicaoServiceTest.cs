@@ -1,5 +1,4 @@
-﻿using Divisores.Dominio;
-using Divisores.Dominio.Interfaces;
+﻿using Divisores.Dominio.Interfaces;
 using Divisores.Dominio.Notificacoes;
 using Divisores.Dominio.Services;
 using FluentAssertions;
@@ -10,13 +9,13 @@ namespace Divisores.Dominio.Tests
 {
     public class DecomposicaoServiceTest
     {
-        [Fact]
+        [Fact(DisplayName = "Deve encontrar divisores de quarenta e cinco")]
         public void DeveEncontrarDivisoresDeQuarentaECinco()
         {
             // Arrange
             INotificador notificador = new Notificador();
             IDecomposicaoService service = new DecomposicaoService(notificador);
-            Numero numero = 45;
+            long numero = 45;
 
             // Act
             var result = service.EncontarDivisores(numero);
@@ -26,7 +25,7 @@ namespace Divisores.Dominio.Tests
                 new DivisoresResult(
                     numero,
                     new HashSet<long> { 1, 3, 5, 9, 15, 45 },
-                    new HashSet<Numero> { 3, 5 })
+                    new HashSet<long> { 3, 5 })
             );
 
         }

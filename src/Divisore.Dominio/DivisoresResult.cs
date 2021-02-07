@@ -4,14 +4,14 @@ namespace Divisores.Dominio
 {
     public class DivisoresResult
     {
-        public Numero NumeroDeEntrada { get; }
+        public long NumeroDeEntrada { get; }
         public IEnumerable<long> NumerosDivisores { get; }
-        public IEnumerable<Numero> DivisoresPrimos { get; }
+        public IEnumerable<long> DivisoresPrimos { get; }
 
         public DivisoresResult(
-            Numero numeroDeEntrada,
+            long numeroDeEntrada,
             IEnumerable<long> numerosDivisores,
-            IEnumerable<Numero> divisoresPrimos)
+            IEnumerable<long> divisoresPrimos)
         {
             NumeroDeEntrada = numeroDeEntrada;
             NumerosDivisores = numerosDivisores;
