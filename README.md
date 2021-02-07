@@ -1,4 +1,5 @@
 # Divisores
+![main](https://github.com/hd1fernando/Divisores/workflows/main/badge.svg)
 
 ## Tipo de Projeto
 Web Api em .Net 5
