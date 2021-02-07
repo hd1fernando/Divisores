@@ -73,8 +73,5 @@ namespace Divisore.Dominio
 
         public double ObterRaizQuadrada()
             => Math.Sqrt(_numero);
-
-        private bool EhDivisorDeQuatroMaisUm(long num)
-            => (num + 1) % 4 == 0;
     }
 }
