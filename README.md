@@ -13,6 +13,9 @@ https://localhost:5001/api/divisores/45
 {"numeroDeEntrada":"45","numerosDivisores":["1","3","5","9","15","45"],"divisoresPrimos":["3","5"]}
 ```
 
+## Pré-requisitos
+* [.Net 5](https://dotnet.microsoft.com/download/dotnet/5.0)
+
 ## Download & execução
 
 No poweshell execute os comandos abaixo
