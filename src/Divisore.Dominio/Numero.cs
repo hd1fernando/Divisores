@@ -69,7 +69,7 @@ namespace Divisore.Dominio
             return true;
         }
 
-        private bool EhPar() => _numero % 2 == 0;
+        public bool EhPar() => _numero % 2 == 0;
 
         public double ObterRaizQuadrada()
             => Math.Sqrt(_numero);
