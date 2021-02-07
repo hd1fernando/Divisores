@@ -27,7 +27,9 @@ O seguinte resultado deve aparecer no seu navegador
 
 * [Udacity Style Guide](https://udacity.github.io/git-styleguide/) para descrição de commits.
 
-## Bibliotecas utlizadas
+* [GitHub Actions](https://github.com/hd1fernando/Divisores/actions) para execução automática de CI.
+
+## Bibliotecas utilizadas
 - [XUnit](https://xunit.net/) para criação de testes de automatizado.
 
 - [Fluent Assertions](https://fluentassertions.com/) para realizar assert nos testes automatizados.
