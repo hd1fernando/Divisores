@@ -1,4 +1,3 @@
-using Divisores.Dominio;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace Divisores.Dominio.Tests
 
             var divisores = numero.Divisores();
 
-            divisores.Should().Equal(new HashSet<long> { 1, 3, 5, 9, 15, 45 });
+            divisores.Should().Equal(new HashSet<Numero> { 1, 3, 5, 9, 15, 45 });
         }
 
         [Fact(DisplayName = "Deve retornar divisores de dois.")]
@@ -25,7 +24,7 @@ namespace Divisores.Dominio.Tests
 
             var divisores = numero.Divisores();
 
-            divisores.Should().Equal(new HashSet<long> { 1, 2 });
+            divisores.Should().Equal(new HashSet<Numero> { 1, 2 });
         }
 
         [Fact(DisplayName = "Deve retornar divisores de um.")]
@@ -35,7 +34,7 @@ namespace Divisores.Dominio.Tests
 
             var divisores = numero.Divisores();
 
-            divisores.Should().Equal(new HashSet<long> { 1 });
+            divisores.Should().Equal(new HashSet<Numero> { 1 });
         }
 
         [Fact(DisplayName = "Deve levantar exceção quando numero for zero.")]
