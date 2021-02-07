@@ -11,7 +11,7 @@ namespace Divisores.Dominio.Tests
     {
         [Trait("Integração", nameof(DecomposicaoService))]
         [Fact(DisplayName = "Deve encontrar divisores de quarenta e cinco.")]
-        public void DeveEncontrarDivisoresDeQuarentaECinco()
+        public void DeveEncontrarDivisores()
         {
             // Arrange
             INotificador notificador = new Notificador();
