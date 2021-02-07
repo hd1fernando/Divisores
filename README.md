@@ -44,4 +44,4 @@ O seguinte resultado deve aparecer no seu navegador
 
 - [Fluent Assertions](https://fluentassertions.com/) para realizar assert nos testes automatizados.
 
--[AutoMapper](https://automapper.org/) para mapear objetos.
+- [AutoMapper](https://automapper.org/) para mapear objetos.
