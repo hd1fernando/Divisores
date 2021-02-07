@@ -3,15 +3,13 @@ using System.Collections.Generic;
 
 namespace Divisores.Dominio
 {
-    public class Numero
+    public struct Numero
     {
         private readonly long _numero;
-        private HashSet<long> _listaDeDivisores;
 
         public Numero(long numero)
         {
             _numero = numero;
-            _listaDeDivisores = new HashSet<long>();
         }
 
         public override string ToString() => _numero.ToString();
@@ -19,20 +17,22 @@ namespace Divisores.Dominio
         public static implicit operator Numero(long numero)
             => new Numero(numero);
 
-        public IEnumerable<long> Divisores()
+        public IEnumerable<Numero> Divisores()
         {
             ValidarSeZero();
 
-            _listaDeDivisores.Add(1);
+            HashSet<Numero> ListaDeDivisores = new();
+
+            ListaDeDivisores.Add(1);
 
             var metade = ObterMetade();
 
             for (long i = 2; i < metade; i++)
-                AdicionarDivisor(i);
+                AdicionarDivisor(i, ListaDeDivisores);
 
-            _listaDeDivisores.Add(_numero);
+            ListaDeDivisores.Add(_numero);
 
-            return _listaDeDivisores;
+            return ListaDeDivisores;
         }
 
         private void ValidarSeZero()
@@ -41,10 +41,10 @@ namespace Divisores.Dominio
                 throw new ArgumentException("O Numero zero nao possui divizores.");
         }
 
-        private void AdicionarDivisor(long numero)
+        private void AdicionarDivisor(long numero, HashSet<Numero> listaDeDivisores)
         {
             if (EhDivisor(numero))
-                _listaDeDivisores.Add(numero);
+                listaDeDivisores.Add(numero);
         }
 
         private bool EhDivisor(long numero)

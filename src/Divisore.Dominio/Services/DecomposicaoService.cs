@@ -5,16 +5,15 @@ namespace Divisores.Dominio.Services
 {
     public class DecomposicaoService : BaseService, IDecomposicaoService
     {
-        private HashSet<long> _primos;
+        private HashSet<Numero> _primos;
 
         public DecomposicaoService(INotificador notificador) : base(notificador)
         {
-            _primos = new HashSet<long>();
+            _primos = new HashSet<Numero>();
         }
 
-        public DivisoresResult EncontarDivisores(long num)
+        public DivisoresResult EncontarDivisores(Numero numero)
         {
-            Numero numero = num;
             var divisores = numero.Divisores();
 
             foreach (var divisor in divisores)
@@ -22,13 +21,12 @@ namespace Divisores.Dominio.Services
                 AddPrimos(divisor);
             }
 
-            return new DivisoresResult(num, divisores, _primos);
+            return new DivisoresResult(numero, divisores, _primos);
         }
 
-        private void AddPrimos(long numero)
+        private void AddPrimos(Numero numero)
         {
-            Numero num = numero;
-            if (num.EhPrimo())
+            if (numero.EhPrimo())
                 _primos.Add(numero);
         }
     }
