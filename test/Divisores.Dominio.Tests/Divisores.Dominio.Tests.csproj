@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Divisores.Dominio\Divisores.Dominio.csproj" />
+  </ItemGroup>
+
 </Project>
