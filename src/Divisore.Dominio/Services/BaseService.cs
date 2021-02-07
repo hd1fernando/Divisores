@@ -1,7 +1,7 @@
-﻿using Divisore.Dominio.Interfaces;
-using Divisore.Dominio.Notificacoes;
+﻿using Divisores.Dominio.Interfaces;
+using Divisores.Dominio.Notificacoes;
 
-namespace Divisore.Dominio.Services
+namespace Divisores.Dominio.Services
 {
     public class BaseService
     {

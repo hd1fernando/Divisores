@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Divisore.Dominio.Notificacoes
+namespace Divisores.Dominio.Notificacoes
 {
     public class Notificacao
     {

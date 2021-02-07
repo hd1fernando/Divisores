@@ -1,29 +1,34 @@
-﻿using Divisore.Dominio.Interfaces;
+﻿using Divisores.Dominio.Interfaces;
 using System.Collections.Generic;
 
-namespace Divisore.Dominio.Services
+namespace Divisores.Dominio.Services
 {
     public class DecomposicaoService : BaseService, IDecomposicaoService
     {
+        private HashSet<Numero> _primos;
+
         public DecomposicaoService(INotificador notificador) : base(notificador)
-        { }
+        {
+            _primos = new HashSet<Numero>();
+        }
 
         public DivisoresResult EncontarDivisores(Numero numero)
         {
-            HashSet<Numero> primos = new();
             var divisores = numero.Divisores();
 
             foreach (var divisor in divisores)
             {
-                Numero n = divisor;
-                if (n.EhPrimo())
-                    primos.Add(n);
+                Numero num = divisor;
+                AddPrimos(num);
             }
 
-            return new DivisoresResult(
-                     numero,
-                     new HashSet<Numero> { 1, 3, 5, 9, 15, 45 },
-                     primos);
+            return new DivisoresResult(numero, divisores, _primos);
+        }
+
+        private void AddPrimos(Numero numero)
+        {
+            if (numero.EhPrimo())
+                _primos.Add(numero);
         }
     }
 }

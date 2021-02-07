@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Divisore.Dominio
+namespace Divisores.Dominio
 {
     public class Numero
     {

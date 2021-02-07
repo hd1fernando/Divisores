@@ -1,7 +1,8 @@
-﻿using Divisore.Dominio.Interfaces;
+﻿using Divisores.Dominio.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Divisore.Dominio.Notificacoes
+namespace Divisores.Dominio.Notificacoes
 {
     public class Notificador : INotificador
     {
@@ -9,7 +10,7 @@ namespace Divisore.Dominio.Notificacoes
         public Notificador()
             => _notificacoes = new List<Notificacao>();
 
-        public void Manipulador(Notificacao notificacao)
+        public void Manipular(Notificacao notificacao)
             => _notificacoes.Add(notificacao);
 
         public IList<Notificacao> ObterNotificacoes()
