@@ -15,7 +15,7 @@ namespace Divisores.Dominio.Tests
             // Arrange
             INotificador notificador = new Notificador();
             IDecomposicaoService service = new DecomposicaoService(notificador);
-            long numero = 45;
+            Numero numero = 45;
 
             // Act
             var result = service.EncontarDivisores(numero);
@@ -24,8 +24,8 @@ namespace Divisores.Dominio.Tests
             result.Should().BeEquivalentTo(
                 new DivisoresResult(
                     numero,
-                    new HashSet<long> { 1, 3, 5, 9, 15, 45 },
-                    new HashSet<long> { 3, 5 })
+                    new HashSet<Numero> { 1, 3, 5, 9, 15, 45 },
+                    new HashSet<Numero> { 3, 5 })
             );
 
         }
