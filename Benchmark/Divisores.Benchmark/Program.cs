@@ -1,4 +1,4 @@
-﻿using Divisore.Dominio;
+﻿using Divisores.Dominio;
 using System;
 using System.Diagnostics;
 
