@@ -6,9 +6,10 @@ namespace Divisores.Benchmark
 {
     class Program
     {
+        const ulong REPETICOES = 1_000_000;
+
         static void Main(string[] args)
         {
-            const ulong REPETICOES = 100_000;
 
             var stopWatch = new Stopwatch();
             var gcAntesGen2 = GC.CollectionCount(2);
@@ -17,11 +18,8 @@ namespace Divisores.Benchmark
 
             stopWatch.Start();
 
-            for (ulong i = 1; i <= REPETICOES; i++)
-            {
-                Numero numero = new((int)i);
-                numero.Divisores();
-            }
+            CalcularPrimo();
+
             stopWatch.Stop();
 
             Console.WriteLine($"{nameof(Numero)}:");
@@ -32,6 +30,25 @@ namespace Divisores.Benchmark
             Console.WriteLine($"GC geração 0 - {GC.CollectionCount(0) - gcAntesGen0}");
             Console.WriteLine(DateTime.Now);
             Console.WriteLine();
+        }
+
+        static void CalcularPrimo()
+        {
+            for (ulong i = 1; i <= REPETICOES; i++)
+            {
+                Numero numero = new((long)i);
+                var resultado = numero.EhPrimo();
+                Console.WriteLine($"{numero} - {resultado}");
+            }
+        }
+
+        static void EncontrarDivisores()
+        {
+            for (ulong i = 1; i <= REPETICOES; i++)
+            {
+                Numero numero = new((long)i);
+                numero.Divisores();
+            }
         }
     }
 }
