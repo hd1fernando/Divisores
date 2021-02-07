@@ -16,7 +16,7 @@ namespace Divisores.Api.Controllers
         protected bool OperacaoValida()
             => _notificador.TemNotificacao() == false;
 
-        protected ActionResult<T> CustomResponse<T>(object result = null)
+        protected ActionResult CustomResponse(object result)
            => OperacaoValida()
            ? Ok(result)
            : BadRequest(_notificador

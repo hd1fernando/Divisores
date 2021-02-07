@@ -24,7 +24,7 @@ namespace Divisores.Api.Controllers
         {
             var divisores = _decomposicaoService.EncontarDivisores(numero);
 
-            return _mapper.Map<DivisoresResultDTO>(divisores);
+            return CustomResponse(_mapper.Map<DivisoresResultDTO>(divisores));
         }
     }
 }
