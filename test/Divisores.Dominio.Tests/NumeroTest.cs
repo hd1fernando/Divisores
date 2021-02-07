@@ -19,6 +19,17 @@ namespace Divisores.Dominio.Tests
         }
 
         [Trait("Unidade", nameof(Numero))]
+        [Fact(DisplayName = "Deve retornar divisores de -45.")]
+        public void DeveRetonarDivisoresDeMenosQuarentaECinco()
+        {
+            Numero numero = new(-45);
+
+            var divisores = numero.Divisores();
+
+            divisores.Should().Equal(new HashSet<Numero> { -45, -15, -9, -5, -3, -1 });
+        }
+
+        [Trait("Unidade", nameof(Numero))]
         [Fact(DisplayName = "Deve retornar divisores de dois.")]
         public void DeveRetonarDivisoresDeDois()
         {
@@ -54,9 +65,11 @@ namespace Divisores.Dominio.Tests
         [Trait("Unidade", nameof(Numero))]
         [Theory(DisplayName = "Deve Considerar numero primo.")]
         [InlineData(2)]
+        [InlineData(-2)]
         [InlineData(3)]
         [InlineData(37)]
         [InlineData(97)]
+        [InlineData(-97)]
         [InlineData(6_700_417)]
         [InlineData(2_147_483_647)]
         [InlineData(67_280_421_310_721)]
@@ -72,8 +85,9 @@ namespace Divisores.Dominio.Tests
         [Trait("Unidade", nameof(Numero))]
         [Theory(DisplayName = "Não Deve Considerar numero primo.")]
         [InlineData(1)]
-        [InlineData(99)]
         [InlineData(10)]
+        [InlineData(99)]
+        [InlineData(-99)]
         [InlineData(123456789)]
         public void NaoDeveConsiderarNumeroPrimo(long num)
         {
