@@ -1,12 +1,12 @@
-﻿using Divisore.Dominio.Notificacoes;
+﻿using Divisores.Dominio.Notificacoes;
 using System.Collections.Generic;
 
-namespace Divisore.Dominio.Interfaces
+namespace Divisores.Dominio.Interfaces
 {
     public interface INotificador
     {
         bool TemNotificacao();
         IList<Notificacao> ObterNotificacoes();
-        void Manipulador(Notificacao notificacao);
+        void Manipular(Notificacao notificacao);
     }
 }
