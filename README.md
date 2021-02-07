@@ -1,8 +1,17 @@
 # Divisores
 ![main](https://github.com/hd1fernando/Divisores/workflows/main/badge.svg)
 
-## Tipo de Projeto
-Web Api em .Net 5
+## Descrição do projeto
+Web Api que recebe uma requisição GET com um número.
+
+Retorna os divisores desse número e os divisores que são primos.
+
+ex:
+
+https://localhost:5001/api/divisores/45
+```json
+{"numeroDeEntrada":"45","numerosDivisores":["1","3","5","9","15","45"],"divisoresPrimos":["3","5"]}
+```
 
 ## Download & execução
 
