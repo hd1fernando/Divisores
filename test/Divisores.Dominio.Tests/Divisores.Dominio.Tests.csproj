@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Divisore.Dominio\Divisore.Dominio.csproj" />
+    <ProjectReference Include="..\..\src\Divisore.Dominio\Divisores.Dominio.csproj" />
   </ItemGroup>
 
 </Project>
