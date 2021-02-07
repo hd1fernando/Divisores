@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Divisores.Api", "src\Divisores.Api\Divisores.Api.csproj", "{3721B84C-E16E-4FB5-8E36-9F2C2EDBD5C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Divisore.Dominio", "src\Divisore.Dominio\Divisore.Dominio.csproj", "{9F5FFDAA-4728-45CB-8F40-056CB1B04830}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Divisores.Dominio", "src\Divisore.Dominio\Divisores.Dominio.csproj", "{9F5FFDAA-4728-45CB-8F40-056CB1B04830}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{A335F7CD-F286-4FA2-89D9-64063BC18536}"
 EndProject
