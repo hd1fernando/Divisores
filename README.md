@@ -12,9 +12,15 @@ cd .\Divisores\
 dotnet build .\src\Divisores.Api\Divisores.Api.csproj --configuration release
 .\src\Divisores.Api\bin\release\net5.0\Divisores.Api.exe
 ```
-A Api iniciará sua execução
-Abra o seu navegador e acesse a url:
-https://localhost:5001/api/divisores/45
+A Api iniciará sua execução.
+
+Abra o seu navegador e acesse a url: https://localhost:5001/api/divisores/45
+
+O seguinte resultado deve aparecer no seu navegador
+
+``` chrome
+{"numeroDeEntrada":"45","numerosDivisores":["1","3","5","9","15","45"],"divisoresPrimos":["3","5"]}
+````
 
 ## Detalhes do projeto
 * [GitFlow](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow) para fluxo de trabalho com Git.
