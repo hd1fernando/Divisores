@@ -23,16 +23,33 @@ namespace Divisores.Dominio
 
             HashSet<Numero> ListaDeDivisores = new();
 
-            ListaDeDivisores.Add(1);
-
-            var metade = ObterMetade();
-
-            for (long i = 2; i < metade; i++)
-                AdicionarDivisor(i, ListaDeDivisores);
-
-            ListaDeDivisores.Add(_numero);
+            AdicionarDivisoresSeNumeroPositivo(ListaDeDivisores);
+            AdicionarDivisoresSeNumeroNegativo(ListaDeDivisores);
 
             return ListaDeDivisores;
+        }
+
+        private void AdicionarDivisoresSeNumeroPositivo(HashSet<Numero> listaDeDivisores)
+        {
+            if (_numero > 0)
+            {
+                var metade = ObterMetade();
+                listaDeDivisores.Add(1);
+                for (long i = 1; i < metade; i++)
+                    AdicionarDivisor(i, listaDeDivisores);
+                listaDeDivisores.Add(_numero);
+            }
+        }
+
+        private void AdicionarDivisoresSeNumeroNegativo(HashSet<Numero> listaDeDivisores)
+        {
+            if (_numero < 0)
+            {
+                var metade = ObterMetade();
+                listaDeDivisores.Add(_numero);
+                for (long i = (long)metade; i < 0; i++)
+                    AdicionarDivisor(i, listaDeDivisores);
+            }
         }
 
         private void ValidarSeZero()
@@ -55,8 +72,10 @@ namespace Divisores.Dominio
 
         public bool EhPrimo()
         {
-            if (_numero <= 1) return false;
-            if (EhPar() && _numero > 2) return false;
+            long numero = _numero;
+            if (numero < 0) numero = numero * (-1);
+            if (numero == 1 || numero == 0) return false;
+            if (EhPar() && numero > 2) return false;
 
             var raiz = ObterRaizQuadrada();
 
@@ -71,7 +90,10 @@ namespace Divisores.Dominio
 
         public bool EhPar() => _numero % 2 == 0;
 
-        public double ObterRaizQuadrada()
-            => Math.Sqrt(_numero);
+        private double ObterRaizQuadrada()
+        {
+            long numero = (_numero >= 0) ? _numero : _numero * -1;
+            return Math.Sqrt(numero);
+        }
     }
 }

@@ -14,6 +14,12 @@ namespace Divisores.Dominio.Services
 
         public DivisoresResult EncontarDivisores(Numero numero)
         {
+            if (EhZero(numero))
+            {
+                Notificar("Nao e possivel encontar divisores de zero.");
+                return null;
+            }
+
             var divisores = numero.Divisores();
 
             foreach (var divisor in divisores)
@@ -23,6 +29,9 @@ namespace Divisores.Dominio.Services
 
             return new DivisoresResult(numero, divisores, _primos);
         }
+
+        private bool EhZero(Numero numero)
+            => numero.Equals(new Numero(0));
 
         private void AddPrimos(Numero numero)
         {
