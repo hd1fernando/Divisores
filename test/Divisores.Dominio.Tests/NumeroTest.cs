@@ -45,7 +45,39 @@ namespace Divisores.Dominio.Tests
 
             Action acao = () => { numero.Divisores(); };
 
-            acao.Should().ThrowExactly<ArgumentException>().WithMessage("O Número zero não possui divizores.");
+            acao.Should().ThrowExactly<ArgumentException>().WithMessage("O Numero zero nao possui divizores.");
         }
+
+        [Theory(DisplayName = "Deve Considerar numero primo.")]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(37)]
+        [InlineData(97)]
+        [InlineData(6_700_417)]
+        [InlineData(2_147_483_647)]
+        [InlineData(67_280_421_310_721)]
+        public void DeveConsiderarNumeroPrimo(long num)
+        {
+            Numero numero = num;
+
+            var divisores = numero.EhPrimo();
+
+            divisores.Should().BeTrue();
+        }
+
+        [Theory(DisplayName = "Não Deve Considerar numero primo.")]
+        [InlineData(1)]
+        [InlineData(99)]
+        [InlineData(10)]
+        [InlineData(123456789)]
+        public void NaoDeveConsiderarNumeroPrimo(long num)
+        {
+            Numero numero = num;
+
+            var divisores = numero.EhPrimo();
+
+            divisores.Should().BeFalse();
+        }
+
     }
 }
