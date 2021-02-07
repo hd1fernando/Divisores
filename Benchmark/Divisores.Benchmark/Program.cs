@@ -1,4 +1,7 @@
 ﻿using Divisores.Dominio;
+using Divisores.Dominio.Interfaces;
+using Divisores.Dominio.Notificacoes;
+using Divisores.Dominio.Services;
 using System;
 using System.Diagnostics;
 
@@ -18,7 +21,7 @@ namespace Divisores.Benchmark
 
             stopWatch.Start();
 
-            CalcularPrimo();
+            Servico();
 
             stopWatch.Stop();
 
@@ -30,6 +33,17 @@ namespace Divisores.Benchmark
             Console.WriteLine($"GC geração 0 - {GC.CollectionCount(0) - gcAntesGen0}");
             Console.WriteLine(DateTime.Now);
             Console.WriteLine();
+        }
+
+
+        static void Servico()
+        {
+            INotificador notificador = new Notificador();
+            IDecomposicaoService service = new DecomposicaoService(notificador);
+            Numero numero = 10_000_000_000;
+
+            // Act
+            var result = service.EncontarDivisores(numero);
         }
 
         static void CalcularPrimo()

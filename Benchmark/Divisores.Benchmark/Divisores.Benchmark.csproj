@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Divisore.Dominio\Divisores.Dominio.csproj" />
+    <ProjectReference Include="..\..\src\Divisores.Dominio\Divisores.Dominio.csproj" />
   </ItemGroup>
 
 </Project>
